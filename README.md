@@ -1,35 +1,91 @@
 # Heart Disease Risk Prediction: Logistic Regression Homework
-## Introductory Context
-Heart disease is the world's leading cause of death, claiming approximately 18 million lives each year, as reported by the World Health Organization. Predictive models like logistic regression can enable early identification of at-risk patients by analyzing clinical features such as age, cholesterol, and blood pressure. This not only improves treatment outcomes but also optimizes resource allocation in healthcare settings. In this homework, you'll implement logistic regression on the Heart Disease Dataset—a real-world UCI repository collection of 303 patient records with 14 features and a binary target (1 for disease presence, 0 for absence). You'll train models, visualize boundaries, apply regularization, and explore deployment via Amazon SageMaker to mimic a production pipeline.
 
+## Repository Overview
+This repository contains a complete implementation of logistic regression
+for heart disease prediction, including exploratory data analysis (EDA),
+model training and visualization, regularization experiments, and a
+deployment-oriented workflow using Amazon SageMaker.
+
+---
+
+## Exercise Summary
+Implements logistic regression for heart disease prediction: EDA,
+training and visualization, regularization, and SageMaker deployment.
+
+---
+
+## Dataset Description
+The project uses the Kaggle Heart Disease Dataset, which contains
+303 patient records with clinical and demographic features.
+
+- Age range: 29–77 years
+- Cholesterol range: 112–564 mg/dL
+- Target variable: presence of heart disease (1) or absence (0)
+- Class distribution: approximately 55% positive cases
+
+Dataset source:
+https://www.kaggle.com/datasets/neurocipher/heartdisease
+
+---
+
+## Deployment Evidence
+
+The best-performing logistic regression model was prepared for deployment
+using Amazon SageMaker. Model parameters (weights and bias) were exported
+as NumPy arrays and an inference script was implemented to load the model
+and return prediction probabilities.
+
+Due to restricted IAM permissions in the academic AWS environment, the
+creation of a real-time SageMaker endpoint was not permitted. Therefore,
+the deployment process was simulated within SageMaker AI, mirroring the
+logic of a production inference endpoint.
+
+### Inference Test
+Test input:
+- Age = 60
+- Cholesterol = 300
+
+Model output:
+- Predicted probability =  **1.000** (very high risk)
+
+Screenshots documenting the deployment workflow and inference results are
+included in the /images directory.
+
+---
 
 ## Repository Structure
 
 ```
 /
-├── README.md                           # Project documentation
-├── heart_disease_lr_analysis.ipynb     # Linear Regression with one feature
-├── Heart_Disease_Prediction.csv        # DataSet
-├── /images                             # Screenshoots of laboratory evidence
+├── README.md
+├── heart_disease_lr_analysis.ipynb
+├── Heart_Disease_Prediction.csv
+├── model/
+│ ├── weights.npy
+│ └── bias.npy
+├── images/
+│ ├── eda_overview.png
+│ ├── training_convergence.png
+│ ├── decision_boundary.png
+│ └── inference_response.png
 ```
+--- 
 
-## Dataset and Notation
+## Notes
+This project demonstrates an end-to-end logistic regression workflow, including
+deployment considerations, while respecting real-world constraints such as
+restricted cloud permissions in educational environments.
 
-| 🧬 Column Name | 📝 Description |
-|--------|------------- |
-| **🧓 Age** | Age of the patient (in years) |
-| **🚹 Sex** | Gender of the patient (**1 = Male, 0 = Female**) |
-| **💔 Chest pain type** | Stellar luminosity | 
-| **💉 BP** | Resting blood pressure (mm Hg) | 
-| **🧈 Cholesterol** | Serum cholesterol level (mg/dL) | 
-| **🍬 FBS over 120** | Fasting blood sugar > 120 mg/dL (1 = True, 0 = False) | 
-| **📈 EKG results** | Resting electrocardiogram results: | 
-| **❤️ Max HR** | Maximum heart rate achieved | 
-| **🏃 Exercise angina** | Exercise-induced angina (**1 = Yes, 0 = No**) | 
-| **📉 ST depression** | ST depression induced by exercise relative to rest | 
-| **⛰️ Slope of ST** | Slope of the peak exercise ST segment | 
-| **🩸 Number of vessels fluro** | Number of major vessels (0–3) colored by fluoroscopy | 
-| **🧬 Thallium** | Thallium stress test result (categorical medical indicator) | 
-| **🎯 Heart Disease** | Target variable: | 
+---
+
+## Author
+**Jeisson David Sanchez Gomez**
+
+---
+
+## License
+This project is intended for **academic use only**.
+
+
 
 
